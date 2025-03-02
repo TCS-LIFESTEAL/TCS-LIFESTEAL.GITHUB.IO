@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Cheater</title>
+</head>
+<body>
+
+    <h2>Report a Cheater on TCS Lifesteal</h2>
+    <label for="cheaterName">Cheater's Username:</label>
+    <input type="text" id="cheaterName" placeholder="Enter username">
+    <button onclick="sendEmail()">Report Cheater</button>
+
+    <script>
+        function sendEmail() {
+            var recipient = "pikachusnewshoes@gmail.com";
+            var subject = "Cheater on TCS Lifesteal";
+            var cheaterName = document.getElementById("cheaterName").value.trim();
+
+            if (cheaterName === "") {
+                alert("Please enter the cheater's username before reporting.");
+                return;
+            }
+
+            var body = `I would like to report a cheater on the TCS Lifesteal server.\n\nDetails:\n- Cheater's IGN: ${cheaterName}\n- Evidence: \n\nPlease investigate this issue.`;
+
+            var mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoLink;
+        }
+    </script>
+
+</body>
+</html>
